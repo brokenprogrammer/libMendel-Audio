@@ -26,11 +26,38 @@
 
 #include "MusicFile.h"
 
-MusicFile::MusicFile()
+MusicFile::~MusicFile()
 {
 }
 
+FILE* MusicFile::getFile() {
+	return file;
+}
 
-MusicFile::~MusicFile()
-{
+std::string MusicFile::getFilePath() {
+	return filePath;
+}
+
+std::string MusicFile::getArtist() {
+	return artist;
+}
+
+std::string MusicFile::getAlbum() {
+	return album;
+}
+
+std::string MusicFile::getTitle() {
+	return title;
+}
+
+std::string MusicFile::getGenre() {
+	return genre;
+}
+
+std::string MusicFile::getTrackNumber() {
+	return trackNumber;
+}
+
+std::string MusicFile::getDate() {
+	return date;
 }

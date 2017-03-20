@@ -25,10 +25,45 @@
  */
 #pragma once
 
+#include <string>
+#include <stdio.h>
+
 class MusicFile
 {
+protected:
+	FILE* file;
+	std::string filePath;
+
+	std::string artist;
+	std::string album;
+	std::string title;
+	std::string genre;
+	std::string trackNumber;
+	std::string date;
+
 public:
-	MusicFile();
-	~MusicFile();
+	FILE* getFile();
+	virtual void setFile(FILE* f) =0;
+
+	std::string getFilePath();
+	virtual void setFilePath(std::string path) = 0;
+
+	std::string getArtist();
+	virtual void setArtist(std::string artist) = 0;
+
+	std::string getAlbum();
+	virtual void setAlbum(std::string album) = 0;
+
+	std::string getTitle();
+	virtual void setTitle(std::string title) = 0;
+
+	std::string getGenre();
+	virtual void setGenre(std::string genre) = 0;
+
+	std::string getTrackNumber();
+	virtual void setTrackNumber(std::string trackNumber) = 0;
+
+	std::string getDate();
+	virtual void setDate(std::string date) = 0;
 };
 

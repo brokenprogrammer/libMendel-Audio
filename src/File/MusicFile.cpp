@@ -30,34 +30,42 @@ MusicFile::~MusicFile()
 {
 }
 
+//Returns a pointer to a file for this music file.
 FILE* MusicFile::getFile() {
 	return file;
 }
 
+//Returns the file path.
 std::string MusicFile::getFilePath() {
 	return filePath;
 }
 
+//Returns the artist metadata of the music file.
 std::string MusicFile::getArtist() {
 	return artist;
 }
 
+//Returns the album metadata of the music file.
 std::string MusicFile::getAlbum() {
 	return album;
 }
 
+//Returns the title metadata of the music file.
 std::string MusicFile::getTitle() {
 	return title;
 }
 
+//Returns the genre metadata of the music file.
 std::string MusicFile::getGenre() {
 	return genre;
 }
 
+//Returns the track number metadata of the music file.
 std::string MusicFile::getTrackNumber() {
 	return trackNumber;
 }
 
+//Returns the date metadata of the music file.
 std::string MusicFile::getDate() {
 	return date;
 }

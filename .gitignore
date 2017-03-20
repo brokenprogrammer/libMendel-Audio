@@ -23,6 +23,15 @@
 *.a
 *.lib
 
+# Visual Studio files
+*.sln
+*.db
+*.vcxproj
+*.opendb
+*.filters
+*.vs
+*.user
+
 # Executables
 *.exe
 *.out

@@ -38,3 +38,7 @@
 *.exe
 *.out
 *.app
+
+# Testing
+/tests/includes
+/tests/build

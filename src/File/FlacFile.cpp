@@ -87,68 +87,84 @@ void FlacFile::setDate(std::string d)
 	date = d;
 }
 
-//implement methods below
 int FlacFile::getMinimumBlockSize()
 {
-	return 0;
+	return minimumBlockSize;
 }
 
-void FlacFile::setMinimumBlockSize()
+void FlacFile::setMinimumBlockSize(int size)
 {
+	minimumBlockSize = size;
 }
 
 int FlacFile::getMaximumBlockSize()
 {
-	return 0;
+	return maximumBlockSize;
 }
 
-void FlacFile::setMaximumBlockSize()
+void FlacFile::setMaximumBlockSize(int size)
 {
+	maximumBlockSize = size;
 }
 
 int FlacFile::getMinimumFrameSize()
 {
-	return 0;
+	return minimumFrameSize;
 }
 
-void FlacFile::setMinimumFrameSize()
+void FlacFile::setMinimumFrameSize(int size)
 {
+	minimumFrameSize = size;
+}
+
+int FlacFile::getMaximumFrameSize()
+{
+	return maximumFrameSize;
+}
+
+void FlacFile::setMaximumFrameSize(int size)
+{
+	maximumFrameSize = size;
 }
 
 int FlacFile::getSampleRate()
 {
-	return 0;
+	return sampleRate;
 }
 
-void FlacFile::setSampleRate()
+void FlacFile::setSampleRate(int rate)
 {
+	sampleRate = rate;
 }
 
 int FlacFile::getNumChannels()
 {
-	return 0;
+	return numChannels;
 }
 
-void FlacFile::setNumChannels()
+void FlacFile::setNumChannels(int channels)
 {
+	numChannels = channels;
 }
 
 int FlacFile::getBitsPerSample()
 {
-	return 0;
+	return bitsPerSample;
 }
 
-void FlacFile::setBitsPerSample()
+void FlacFile::setBitsPerSample(int bits)
 {
+	bitsPerSample = bits;
 }
 
 int FlacFile::getNumSamples()
 {
-	return 0;
+	return numSamples;
 }
 
-void FlacFile::setNumSamples()
+void FlacFile::setNumSamples(int samples)
 {
+	numSamples = samples;
 }
 
 std::string FlacFile::getVendor()
@@ -156,8 +172,9 @@ std::string FlacFile::getVendor()
 	return std::string();
 }
 
-void FlacFile::setVendor()
+void FlacFile::setVendor(std::string v)
 {
+	vendor = v;
 }
 
 void FlacFile::parse()

@@ -6,9 +6,17 @@ find_package(Git REQUIRED)
 # Directory for the tests
 set(TEST_DIR ${PROJECT_SOURCE_DIR})
 
-# Sources files to be tested
+# Sources files to be tested and / or included
+# TODO: Find better solution for this / clean up file.
 set(TEST_SOURCES
-    ${TEST_DIR}/test_file.cpp
+    ${TEST_DIR}/BaseTest.cpp
+    ${TEST_DIR}/FlacFileTests.cpp
+    ${TEST_DIR}/../src/libMendelAudio.h
+    ${TEST_DIR}/../src/File/AudioFiles.h
+    ${TEST_DIR}/../src/File/MusicFile.h
+    ${TEST_DIR}/../src/File/MusicFile.cpp
+    ${TEST_DIR}/../src/File/FlacFile.h
+    ${TEST_DIR}/../src/File/FlacFile.cpp
 )
 
 # Making the CMake script fetch Catch from github

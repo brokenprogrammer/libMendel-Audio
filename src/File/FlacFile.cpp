@@ -25,11 +25,10 @@
  */
 
 #include "FlacFile.h"
-#include <iostream>
 
 FlacFile::FlacFile()
 {
-	std::cout << "TESTING";
+
 }
 
 FlacFile::FlacFile(std::string path)
@@ -86,6 +85,79 @@ void FlacFile::setTrackNumber(std::string t)
 void FlacFile::setDate(std::string d)
 {
 	date = d;
+}
+
+//implement methods below
+int FlacFile::getMinimumBlockSize()
+{
+	return 0;
+}
+
+void FlacFile::setMinimumBlockSize()
+{
+}
+
+int FlacFile::getMaximumBlockSize()
+{
+	return 0;
+}
+
+void FlacFile::setMaximumBlockSize()
+{
+}
+
+int FlacFile::getMinimumFrameSize()
+{
+	return 0;
+}
+
+void FlacFile::setMinimumFrameSize()
+{
+}
+
+int FlacFile::getSampleRate()
+{
+	return 0;
+}
+
+void FlacFile::setSampleRate()
+{
+}
+
+int FlacFile::getNumChannels()
+{
+	return 0;
+}
+
+void FlacFile::setNumChannels()
+{
+}
+
+int FlacFile::getBitsPerSample()
+{
+	return 0;
+}
+
+void FlacFile::setBitsPerSample()
+{
+}
+
+int FlacFile::getNumSamples()
+{
+	return 0;
+}
+
+void FlacFile::setNumSamples()
+{
+}
+
+std::string FlacFile::getVendor()
+{
+	return std::string();
+}
+
+void FlacFile::setVendor()
+{
 }
 
 void FlacFile::parse()

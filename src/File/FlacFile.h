@@ -68,6 +68,51 @@ public:
 	//Setter for the date of the flac file.
 	void setDate(std::string d) override;
 
+	//Returns the minimum block size of the song.
+	int getMinimumBlockSize();
+	//Setter for the minimum block size.
+	void setMinimumBlockSize();
+
+	//Returns the maximum block size of the song.
+	int getMaximumBlockSize();
+	//Setter for the maximum block size.
+	void setMaximumBlockSize();
+
+	//Returns the minimum frame size of the song.
+	int getMinimumFrameSize();
+	//Setter for the minimum frame size.
+	void setMinimumFrameSize();
+
+	//Returns the maximum frame size of the song.
+	int getMaximumFrameSize();
+	//Setter for the maximum frame size.
+	void setMaximumFrameSize();
+
+	//Returns the sample rate of the song.
+	int getSampleRate();
+	//Setter for the sample rate.
+	void setSampleRate();
+
+	//Returns the number of channels in the song.
+	int getNumChannels();
+	//Setter for the number of channels.
+	void setNumChannels();
+
+	//Returns the number of bits per sample.
+	int getBitsPerSample();
+	//Setter for the number of bits per sample.
+	void setBitsPerSample();
+
+	//Returns the number of samples.
+	int getNumSamples();
+	//Setter for the number of samples.
+	void setNumSamples();
+
+	//Returns the Vendor from the Vorbis comments.
+	std::string getVendor();
+	//Setter for the Vendor of the Vorbis comments.
+	void setVendor();
+
 private:
 	int minimumBlockSize;
 	int maximumBlockSize;

@@ -31,6 +31,8 @@
 *.filters
 *.vs
 *.user
+/src/Debug
+/src/ipch
 
 # Executables
 *.exe

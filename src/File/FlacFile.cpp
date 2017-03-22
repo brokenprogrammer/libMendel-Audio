@@ -32,6 +32,17 @@ FlacFile::FlacFile()
 	std::cout << "TESTING";
 }
 
+FlacFile::FlacFile(std::string path)
+{
+	filePath = path;
+	//populate file with the file at the specified path.
+}
+
+FlacFile::FlacFile(FILE * f)
+{
+	file = f;
+	//Get the file path of file and populate filePath with the path.
+}
 
 FlacFile::~FlacFile()
 {
@@ -75,4 +86,8 @@ void FlacFile::setTrackNumber(std::string t)
 void FlacFile::setDate(std::string d)
 {
 	date = d;
+}
+
+void FlacFile::parse()
+{
 }

@@ -31,6 +31,15 @@ class FlacFile : public MusicFile
 {
 public:
 	FlacFile();
+
+	//Constructs a new FlacFile object and directly populates it with data from the
+	//file at the specified path.
+	FlacFile(std::string path);
+
+	//Constructs a new FlacFile object and directly populates it with data from the 
+	//specified FILE.
+	FlacFile(FILE * f);
+
 	~FlacFile();
 
 	// Inherited via MusicFile
@@ -58,5 +67,22 @@ public:
 
 	//Setter for the date of the flac file.
 	void setDate(std::string d) override;
+
+private:
+	int minimumBlockSize;
+	int maximumBlockSize;
+	int minimumFrameSize;
+	int maximumFrameSize;
+
+	int sampleRate;
+	int numChannels;
+	int bitsPerSample;
+	int numSamples;
+
+	//Data from the vorbis comment within the Flac file;
+	std::string vendor;
+
+	//Initializes the parsing of data for the FlacFile.
+	void parse();
 };
 

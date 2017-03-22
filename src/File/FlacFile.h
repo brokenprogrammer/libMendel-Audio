@@ -33,6 +33,30 @@ public:
 	FlacFile();
 	~FlacFile();
 
+	// Inherited via MusicFile
 
+	//Setter for the file for this flac file.
+	void setFile(FILE * f) override;
+
+	//Setter for the file path.
+	void setFilePath(std::string path) override;
+
+	//Setter for the artist of the flac file.
+	void setArtist(std::string a) override;
+
+	//Setter for the album of the flac file.
+	void setAlbum(std::string a) override;
+
+	//Setter for the title of the flac file.
+	void setTitle(std::string t) override;
+
+	//Setter for the genre of the flac file.
+	void setGenre(std::string g) override;
+
+	//Setter for the track number of the flac file.
+	void setTrackNumber(std::string t) override;
+
+	//Setter for the date of the flac file.
+	void setDate(std::string d) override;
 };
 

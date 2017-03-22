@@ -36,3 +36,43 @@ FlacFile::FlacFile()
 FlacFile::~FlacFile()
 {
 }
+
+void FlacFile::setFile(FILE * f)
+{
+	file = f;
+}
+
+void FlacFile::setFilePath(std::string path)
+{
+	filePath = path;
+}
+
+void FlacFile::setArtist(std::string a)
+{
+	artist = a;
+}
+
+void FlacFile::setAlbum(std::string a)
+{
+	album = a;
+}
+
+void FlacFile::setTitle(std::string t)
+{
+	title = t;
+}
+
+void FlacFile::setGenre(std::string g)
+{
+	genre = g;
+}
+
+void FlacFile::setTrackNumber(std::string t)
+{
+	trackNumber = t;
+}
+
+void FlacFile::setDate(std::string d)
+{
+	date = d;
+}

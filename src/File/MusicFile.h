@@ -61,31 +61,31 @@ public:
 	//Returns the artist metadata of the music file.
 	std::string getArtist();
 	//Pure virtual setter for the artist of the music file.
-	virtual void setArtist(std::string artist) = 0;
+	virtual void setArtist(std::string a) = 0;
 
 	//Returns the album metadata of the music file.
 	std::string getAlbum();
 	//Pure virtual setter for the album of the music file.
-	virtual void setAlbum(std::string album) = 0;
+	virtual void setAlbum(std::string a) = 0;
 
 	//Returns the title metadata of the music file.
 	std::string getTitle();
 	//Pure virtual setter for the title of the music file.
-	virtual void setTitle(std::string title) = 0;
+	virtual void setTitle(std::string t) = 0;
 
 	//Returns the genre metadata of the music file.
 	std::string getGenre();
 	//Pure virtual setter for the genre of the music file.
-	virtual void setGenre(std::string genre) = 0;
+	virtual void setGenre(std::string g) = 0;
 
 	//Returns the track number metadata of the music file.
 	std::string getTrackNumber();
 	//Pure virtual setter for the track number of the music file.
-	virtual void setTrackNumber(std::string trackNumber) = 0;
+	virtual void setTrackNumber(std::string t) = 0;
 
 	//Returns the date metadata of the music file.
 	std::string getDate();
 	//Pure virtual setter for the date of the music file.
-	virtual void setDate(std::string date) = 0;
+	virtual void setDate(std::string d) = 0;
 };
 

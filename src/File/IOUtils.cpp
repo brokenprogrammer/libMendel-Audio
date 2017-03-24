@@ -26,13 +26,110 @@
 
 #include "IOUtils.h"
 
-
-
-IOUtils::IOUtils()
+void IOUtils::readBytes(std::ifstream input, char * b, int len)
 {
 }
 
-
-IOUtils::~IOUtils()
+void IOUtils::readBytes(std::ifstream input, char * b, int len, int off)
 {
+}
+
+char IOUtils::intToByte(int i)
+{
+	return 0;
+}
+
+int IOUtils::byteToInt(char b)
+{
+	return 0;
+}
+
+int IOUtils::getBitAt(char b, int pos)
+{
+	return 0;
+}
+
+int IOUtils::getBitAtBE(char b, int pos)
+{
+	return 0;
+}
+
+int IOUtils::getTopNibble(char b)
+{
+	return 0;
+}
+
+int IOUtils::getBottomNibble(char b)
+{
+	return 0;
+}
+
+int IOUtils::getTopNibble(int i)
+{
+	return 0;
+}
+
+int IOUtils::getBottomNibble(int i)
+{
+	return 0;
+}
+
+int IOUtils::addBytesToInt(int x1, int x2)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToInt(int x1, int x2, int x3)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToInt(int x1, int x2, int x3, int x4)
+{
+	return 0;
+}
+
+int IOUtils::addBytesToIntBE(int x1, int x2)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToIntBE(int x1, int x2, int x3)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToIntBE(int x1, int x2, int x3, int x4)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToInt4(char * b)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToInt4(char * b, int off)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToInt4BE(char * b)
+{
+	return 0;
+}
+
+long IOUtils::addBytesToInt4BE(char * b, int off)
+{
+	return 0;
+}
+
+std::string IOUtils::createByteString(int bits, int offset)
+{
+	return std::string();
+}
+
+std::string IOUtils::getBytesToString(char * b, int offset, int len)
+{
+	return std::string();
 }

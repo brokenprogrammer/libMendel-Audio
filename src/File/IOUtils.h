@@ -26,11 +26,37 @@
 #pragma once
 
 #include <fstream>
+#include <string>
 
 class IOUtils
 {
 public:
-	static void readBytes(std::ifstream input, char* b);
-	static void readBytes(std::ifstream input, char* b, int off, int len);
+	static void readBytes(std::ifstream input, char* b, int len);
+	static void readBytes(std::ifstream input, char* b, int len, int off);
+	static char intToByte(int i);
+	static int  byteToInt(char b);
+	static int  getBitAt(char b, int pos);
+	static int  getBitAtBE(char b, int pos);
+	static int  getTopNibble(char b);
+	static int  getBottomNibble(char b);
+	static int  getTopNibble(int i);
+	static int  getBottomNibble(int i);
+	
+	static int  addBytesToInt(int x1, int x2);
+	static long addBytesToInt(int x1, int x2, int x3);
+	static long addBytesToInt(int x1, int x2, int x3, int x4);
+
+	static int  addBytesToIntBE(int x1, int x2);
+	static long addBytesToIntBE(int x1, int x2, int x3);
+	static long addBytesToIntBE(int x1, int x2, int x3, int x4);
+
+	static long addBytesToInt4(char* b);
+	static long addBytesToInt4(char* b, int off);
+
+	static long addBytesToInt4BE(char* b);
+	static long addBytesToInt4BE(char* b, int off);
+
+	static std::string createByteString(int bits, int offset);
+	static std::string getBytesToString(char* b, int offset, int len);
 };
 

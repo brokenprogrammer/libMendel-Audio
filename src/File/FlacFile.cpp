@@ -25,6 +25,8 @@
  */
 
 #include "FlacFile.h"
+#include <iostream>
+#include <fstream>
 
 FlacFile::FlacFile()
 {
@@ -179,4 +181,20 @@ void FlacFile::setVendor(std::string v)
 
 void FlacFile::parse()
 {
+	//Temp code, Reads first 4 bytes of a file, if its a flac file it should print out
+	//fLaC from the output stream.
+	std::ifstream in(getFilePath());
+
+	for (int i = 0; i < 4; i++) {
+		char c = in.get();
+		if (in.fail()) {
+			std::cout << std::endl << "Error, closing.." << std::endl;
+			break;
+		}
+		else {
+			std::cout << c;
+		}
+	}
+	std::cout << std::endl;
+	in.close();
 }

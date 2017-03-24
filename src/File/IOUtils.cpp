@@ -24,49 +24,15 @@
  * SOFTWARE.
  */
 
-#include "includes\catch.hpp"
-#include"../src/libMendelAudio.h"
-#include <iostream>
+#include "IOUtils.h"
 
-TEST_CASE("FlacFile") 
+
+
+IOUtils::IOUtils()
 {
+}
 
-	SECTION("String constructor sets the file path")
-	{
-		FlacFile file("path/to/my/file");
-		CHECK(std::string(file.getFilePath()).compare("path/to/my/file") == 0);
-	}
 
-	SECTION("File constructor sets the file and the path")
-	{
-
-	}
-
-	SECTION("setFile sets the file")
-	{
-
-	}
-
-	SECTION("setFilePath sets the file path")
-	{
-		FlacFile file;
-		file.setFilePath("path/to/my/file");
-		CHECK(std::string(file.getFilePath()).compare("path/to/my/file") == 0);
-
-		FlacFile file2("path/to/my/file");
-		CHECK(std::string(file2.getFilePath()).compare("path/to/my/file") == 0);
-	}
-
-	SECTION("setArtist sets the artist metadata")
-	{
-		FlacFile file;
-		file.setArtist("Jimmy Ate World");
-		CHECK(std::string(file.getArtist()).compare("Jimmy Ate World") == 0);
-	}
-
-	/*FlacFile file;
-	file.setTitle("The Middle");
-
-	std::string mystr("The Middle");
-	REQUIRE(std::string(file.getTitle()).compare(mystr) == 0);*/
+IOUtils::~IOUtils()
+{
 }

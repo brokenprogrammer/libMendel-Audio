@@ -11,12 +11,15 @@ set(TEST_DIR ${PROJECT_SOURCE_DIR})
 set(TEST_SOURCES
     ${TEST_DIR}/BaseTest.cpp
     ${TEST_DIR}/FlacFileTests.cpp
+    ${TEST_DIR}/IOUtilsTests.cpp
     ${TEST_DIR}/../src/libMendelAudio.h
     ${TEST_DIR}/../src/File/AudioFiles.h
     ${TEST_DIR}/../src/File/MusicFile.h
     ${TEST_DIR}/../src/File/MusicFile.cpp
     ${TEST_DIR}/../src/File/FlacFile.h
     ${TEST_DIR}/../src/File/FlacFile.cpp
+    ${TEST_DIR}/../src/File/IOUtils.h
+    ${TEST_DIR}/../src/File/IOUtils.cpp
 )
 
 # Making the CMake script fetch Catch from github

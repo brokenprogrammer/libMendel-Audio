@@ -28,24 +28,28 @@
 #include <fstream>
 #include <string>
 
+typedef unsigned char BYTE;
+
 // Provides IO Utilities like functions to handle and read bit operations.
 class IOUtils
 {
 public:
 	// Reads the ifstream and populates the char array b with the next len bytes
 	// if the end of file was reached an exception will be thrown.
-	static void readBytes(std::ifstream input, char* b, int len);
+	static void readBytes(std::ifstream& input, char* b, int len);
 
 	// Reads the ifstream and populates the char array b with the next len bytes
 	// starting from the offset. If the end of file was reached an 
 	// exception will be thrown.
-	static void readBytes(std::ifstream input, char* b, int len, int off);
+	static void readBytes(std::ifstream& input, char* b, int len, int off);
 
-	// Converts an integer to a signed byte.
-	static char intToByte(int i);
+	// Converts an integer to an unsigned byte. This is a single byte with value
+	// ranging from 0 - 255
+	static BYTE intToByte(int i);
 
-	// Converts a byte into an integer value.
-	static int  byteToInt(char b);
+	// Converts a byte into an integer value. This is a single byte with value
+	// ranging from 0 - 255
+	static int  byteToInt(BYTE b);
 
 	// Retrieves the bit at specified position.
 	static int  getBitAt(char b, int pos);

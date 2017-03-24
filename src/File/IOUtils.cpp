@@ -26,22 +26,34 @@
 
 #include "IOUtils.h"
 
-void IOUtils::readBytes(std::ifstream input, char * b, int len)
+void IOUtils::readBytes(std::ifstream& input, char * b, int len)
 {
+	readBytes(input, b, len, 0);
 }
 
-void IOUtils::readBytes(std::ifstream input, char * b, int len, int off)
+void IOUtils::readBytes(std::ifstream& input, char * b, int len, int off)
 {
+	// TODO: Implement error checking.
+	input.seekg(input.tellg()+=off);
+	input.read(b, len);
 }
 
-char IOUtils::intToByte(int i)
+BYTE IOUtils::intToByte(int i)
 {
-	return 0;
+	//The given integer is too large for a byte.
+	if (i > 256) {
+		// Throw exception.
+	}
+
+	if (i > 127) {
+		return (BYTE)(i - 256);
+	}
+	return (BYTE)i;
 }
 
-int IOUtils::byteToInt(char b)
+int IOUtils::byteToInt(BYTE b)
 {
-	return 0;
+	return b;
 }
 
 int IOUtils::getBitAt(char b, int pos)

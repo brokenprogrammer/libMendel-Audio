@@ -58,47 +58,47 @@ int IOUtils::byteToInt(BYTE b)
 
 int IOUtils::getBitAt(char b, int pos)
 {
-	return 0;
+	return (b >> pos) & 1;
 }
 
 int IOUtils::getBitAtBE(char b, int pos)
 {
-	return 0;
+	return (b >> (7-pos)) & 1;
 }
 
 int IOUtils::getTopNibble(char b)
 {
-	return 0;
+	return (b >> 4) & 0x0F;
 }
 
 int IOUtils::getBottomNibble(char b)
 {
-	return 0;
+	return (b & 0x0F);
 }
 
 int IOUtils::getTopNibble(int i)
 {
-	return 0;
+	return (i >> 4) & 0x0F;
 }
 
 int IOUtils::getBottomNibble(int i)
 {
-	return 0;
+	return (i & 0x0F);
 }
 
 int IOUtils::addBytesToInt(int x1, int x2)
 {
-	return 0;
+	return (x2 << 8) | (x1 & 0xFF);
 }
 
 long IOUtils::addBytesToInt(int x1, int x2, int x3)
 {
-	return 0;
+	return (x3 << 16) | (x2 << 8) | (x1 & 0xFF);
 }
 
-long IOUtils::addBytesToInt(int x1, int x2, int x3, int x4)
+long long IOUtils::addBytesToInt(int x1, int x2, int x3, int x4)
 {
-	return 0;
+	return (x4 << 32) | (x3 << 16) | (x2 << 8) | (x1 & 0xFF); //Generates warning.. ?
 }
 
 int IOUtils::addBytesToIntBE(int x1, int x2)

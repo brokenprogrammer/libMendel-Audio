@@ -76,7 +76,7 @@ public:
 	static long addBytesToInt(int x1, int x2, int x3);
 
 	// Combines four bytes into a number.
-	static long addBytesToInt(int x1, int x2, int x3, int x4);
+	static long long addBytesToInt(int x1, int x2, int x3, int x4);
 
 	// Combines two bytes into a number using Big-Endian approach.
 	static int  addBytesToIntBE(int x1, int x2);

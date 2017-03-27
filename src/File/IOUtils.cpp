@@ -96,52 +96,88 @@ long IOUtils::addBytesToInt(int x1, int x2, int x3)
 	return (x3 << 16) | (x2 << 8) | (x1 & 0xFF);
 }
 
-long long IOUtils::addBytesToInt(int x1, int x2, int x3, int x4)
+long int IOUtils::addBytesToInt(int x1, int x2, int x3, int x4)
 {
-	return (x4 << 32) | (x3 << 16) | (x2 << 8) | (x1 & 0xFF); //Generates warning.. ?
+	return (x4 << 24) | (x3 << 16) | (x2 << 8) | (x1 & 0xFF);
 }
 
 int IOUtils::addBytesToIntBE(int x1, int x2)
 {
-	return 0;
+	return (x1 << 8) | (x2 & 0xFF);
 }
 
 long IOUtils::addBytesToIntBE(int x1, int x2, int x3)
 {
-	return 0;
+	return (x1 << 16) | (x2 << 8) | (x3 & 0xFF);
 }
 
 long IOUtils::addBytesToIntBE(int x1, int x2, int x3, int x4)
 {
-	return 0;
+	return (x1 << 24) | (x2 << 16) | (x3 << 8) | (x4 & 0xFF);
 }
 
-long IOUtils::addBytesToInt4(char * b)
+long IOUtils::addBytesToInt4(unsigned char * b)
 {
-	return 0;
+	return addBytesToInt4(b, 0);
 }
 
-long IOUtils::addBytesToInt4(char * b, int off)
+long IOUtils::addBytesToInt4(unsigned char * b, int off)
 {
-	return 0;
+	int i = off;
+	int x1 = b[i++] & 0xFF;
+	int x2 = b[i++] & 0xFF;
+	int x3 = b[i++] & 0xFF;
+	int x4 = b[i++] & 0xFF;
+
+	return addBytesToInt(x1, x2, x3, x4);
 }
 
-long IOUtils::addBytesToInt4BE(char * b)
+long IOUtils::addBytesToInt4BE(unsigned char * b)
 {
-	return 0;
+	return addBytesToInt4BE(b, 0);
 }
 
-long IOUtils::addBytesToInt4BE(char * b, int off)
+long IOUtils::addBytesToInt4BE(unsigned char * b, int off)
 {
-	return 0;
+	int i = off;
+	int x1 = b[i++] & 0xFF;
+	int x2 = b[i++] & 0xFF;
+	int x3 = b[i++] & 0xFF;
+	int x4 = b[i++] & 0xFF;
+
+	return addBytesToIntBE(x1, x2, x3, x4);
 }
 
 std::string IOUtils::createByteString(int bits, int offset)
 {
-	return std::string();
+	if (bits > 8 || (bits+offset) > 8) {
+		//Throw exception
+	}
+
+	int populated = 0;
+	std::string s = "";
+
+	for (int x = 0; x < offset; x++) {
+		s += "0";
+		populated++;
+	}
+
+	for (int x = 0; x < bits; x++) {
+		s += "1";
+		populated++;
+	}
+
+	for (int x = populated; x < 8; x++) {
+		s += "0";
+	}
+
+	return s;
 }
 
-std::string IOUtils::getBytesToString(char * b, int offset, int len)
+std::string IOUtils::getBytesToString(const char * b, size_t len)
 {
-	return std::string();
+	//TODO: Change parameter to unsigned char* and add offset parameter.
+	//TODO: Make a new const char* taking all content from target offset
+	//TODO: from the unsigned char*
+	return std::string(b, len);
 }

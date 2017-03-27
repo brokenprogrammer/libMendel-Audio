@@ -233,6 +233,129 @@ TEST_CASE("IOUtils")
 
 	SECTION("Adding four bytes")
 	{
+		int b1 = 15;
+		int b2 = 255;
+		int b3 = 3;
+		int b4 = 60;
 
+		// 0011 1100 0000 0011 1111 1111 0000 1111 = 1006894863
+		CHECK(IOUtils::addBytesToInt(b1, b2, b3, b4) == 1006894863);
+		//0000 1111 0011 1100 0000 0011 1111 1111 = 255591423
+		CHECK(IOUtils::addBytesToInt(b2, b3, b4, b1) == 255591423);
+		//1111 1111 0000 1111 0011 1100 0000 0011 = 4279188483
+		CHECK(IOUtils::addBytesToInt(b3, b4, b1, b2) == 4279188483);
+	}
+
+	SECTION("Adding two bytes Big-Endian")
+	{
+		int b1 = 15;
+		int b2 = 255;
+		int b3 = 3;
+		int b4 = 60;
+
+		//0000 1111 1111 1111 = 4095
+		CHECK(IOUtils::addBytesToIntBE(b1, b2) == 4095);
+		//1111 1111 0000 0011 = 65283
+		CHECK(IOUtils::addBytesToIntBE(b2, b3) == 65283);
+		//0000 0011 0011 1100 = 828
+		CHECK(IOUtils::addBytesToIntBE(b3, b4) == 828);
+	}
+
+	SECTION("Adding three bytes Big-Endian")
+	{
+		int b1 = 15;
+		int b2 = 255;
+		int b3 = 3;
+		int b4 = 60;
+
+		//0000 1111 1111 1111 0000 0011 = 1048323
+		CHECK(IOUtils::addBytesToIntBE(b1, b2, b3) == 1048323);
+		//1111 1111 0000 0011 0011 1100 = 16712508
+		CHECK(IOUtils::addBytesToIntBE(b2, b3, b4) == 16712508);
+		//0000 0011 0011 1100 0000 1111 = 211983
+		CHECK(IOUtils::addBytesToIntBE(b3, b4, b1) == 211983);
+	}
+
+	SECTION("Adding four bytes Big-Endian")
+	{
+		int b1 = 15;
+		int b2 = 255;
+		int b3 = 3;
+		int b4 = 60;
+
+		//0000 1111 1111 1111 0000 0011 0011 1100 = 268370748
+		CHECK(IOUtils::addBytesToIntBE(b1, b2, b3, b4) == 268370748);
+		//1111 1111 0000 0011 0011 1100 0000 1111 = 4278402063
+		CHECK(IOUtils::addBytesToIntBE(b2, b3, b4, b1) == 4278402063);
+		//0000 0011 0011 1100 0000 1111 1111 1111 = 54267903
+		CHECK(IOUtils::addBytesToIntBE(b3, b4, b1, b2) == 54267903);
+	}
+
+	SECTION("Adding bytes using array")
+	{
+		unsigned char b1[] = { 15, 255, 3, 60 };
+		unsigned char b2[] = { 255, 3, 60, 15 };
+		unsigned char b3[] = { 3, 60, 15, 255 };
+
+		CHECK(IOUtils::addBytesToInt4(b1) == 1006894863);
+		CHECK(IOUtils::addBytesToInt4(b2) == 255591423);
+		CHECK(IOUtils::addBytesToInt4(b3) == 4279188483);
+	}
+
+	SECTION("Adding bytes using array and offset")
+	{
+		unsigned char b1[] = { 15, 255, 3, 60, 1, 127 };
+		unsigned char b2[] = { 1, 44, 82, 255, 3, 60, 15 };
+		unsigned char b3[] = { 111, 32, 222, 210, 3, 60, 15, 255 };
+
+		CHECK(IOUtils::addBytesToInt4(b1, 0) == 1006894863);
+		CHECK(IOUtils::addBytesToInt4(b2, 3) == 255591423);
+		CHECK(IOUtils::addBytesToInt4(b3, 4) == 4279188483);
+	}
+
+	SECTION("Adding bytes using array Big-Endian")
+	{
+		unsigned char b1[] = { 15, 255, 3, 60 };
+		unsigned char b2[] = { 255, 3, 60, 15 };
+		unsigned char b3[] = { 3, 60, 15, 255 };
+
+		CHECK(IOUtils::addBytesToInt4BE(b1) == 268370748);
+		CHECK(IOUtils::addBytesToInt4BE(b2) == 4278402063);
+		CHECK(IOUtils::addBytesToInt4BE(b3) == 54267903);
+	}
+
+	SECTION("Adding bytes using array and offset Big-Endian")
+	{
+		unsigned char b1[] = { 15, 255, 3, 60, 1, 127 };
+		unsigned char b2[] = { 1, 44, 82, 255, 3, 60, 15 };
+		unsigned char b3[] = { 111, 32, 222, 210, 3, 60, 15, 255 };
+
+		CHECK(IOUtils::addBytesToInt4BE(b1, 0) == 268370748);
+		CHECK(IOUtils::addBytesToInt4BE(b2, 3) == 4278402063);
+		CHECK(IOUtils::addBytesToInt4BE(b3, 4) == 54267903);
+	}
+
+	SECTION("Creating a byte string")
+	{
+		std::string fifteen = IOUtils::createByteString(4,4);
+		std::string fifteenBytes = "00001111";
+
+		std::string three = IOUtils::createByteString(2, 6);
+		std::string threeBytes = "00000011";
+
+		CHECK(fifteen.compare(fifteenBytes) == 0);
+		CHECK(three.compare(threeBytes) == 0);
+	}
+
+	SECTION("Converting bytes to string") 
+	{
+		const char *str1 = "Hello World";
+		const char *str2 = "Oskar Mendel";
+
+		std::string helloStr = IOUtils::getBytesToString(str1, strlen(str1));
+		std::string nameStr = IOUtils::getBytesToString(str2, strlen(str2));
+
+		CHECK(helloStr.compare("Hello World") == 0);
+		CHECK(nameStr.compare("Oskar Mendel") == 0);
 	}
 }

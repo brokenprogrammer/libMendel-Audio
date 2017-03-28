@@ -96,7 +96,8 @@ long IOUtils::addBytesToInt(int x1, int x2, int x3)
 	return (x3 << 16) | (x2 << 8) | (x1 & 0xFF);
 }
 
-long int IOUtils::addBytesToInt(int x1, int x2, int x3, int x4)
+uint_least32_t IOUtils::addBytesToInt(uint_least32_t x1, 
+	uint_least32_t x2, uint_least32_t x3, uint_least32_t x4)
 {
 	return (x4 << 24) | (x3 << 16) | (x2 << 8) | (x1 & 0xFF);
 }
@@ -106,22 +107,23 @@ int IOUtils::addBytesToIntBE(int x1, int x2)
 	return (x1 << 8) | (x2 & 0xFF);
 }
 
-long IOUtils::addBytesToIntBE(int x1, int x2, int x3)
+uint_least32_t IOUtils::addBytesToIntBE(int x1, int x2, int x3)
 {
 	return (x1 << 16) | (x2 << 8) | (x3 & 0xFF);
 }
 
-long IOUtils::addBytesToIntBE(int x1, int x2, int x3, int x4)
+uint_least32_t IOUtils::addBytesToIntBE(uint_least32_t x1, 
+	uint_least32_t x2, uint_least32_t x3, uint_least32_t x4)
 {
 	return (x1 << 24) | (x2 << 16) | (x3 << 8) | (x4 & 0xFF);
 }
 
-long IOUtils::addBytesToInt4(unsigned char * b)
+uint_least32_t IOUtils::addBytesToInt4(unsigned char * b)
 {
 	return addBytesToInt4(b, 0);
 }
 
-long IOUtils::addBytesToInt4(unsigned char * b, int off)
+uint_least32_t IOUtils::addBytesToInt4(unsigned char * b, int off)
 {
 	int i = off;
 	int x1 = b[i++] & 0xFF;
@@ -132,12 +134,12 @@ long IOUtils::addBytesToInt4(unsigned char * b, int off)
 	return addBytesToInt(x1, x2, x3, x4);
 }
 
-long IOUtils::addBytesToInt4BE(unsigned char * b)
+uint_least32_t IOUtils::addBytesToInt4BE(unsigned char * b)
 {
 	return addBytesToInt4BE(b, 0);
 }
 
-long IOUtils::addBytesToInt4BE(unsigned char * b, int off)
+uint_least32_t IOUtils::addBytesToInt4BE(unsigned char * b, int off)
 {
 	int i = off;
 	int x1 = b[i++] & 0xFF;

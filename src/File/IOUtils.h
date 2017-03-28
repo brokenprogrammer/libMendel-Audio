@@ -27,6 +27,7 @@
 
 #include <fstream>
 #include <string>
+#include <cstdint>
 
 typedef unsigned char BYTE;
 
@@ -76,29 +77,31 @@ public:
 	static long addBytesToInt(int x1, int x2, int x3);
 
 	// Combines four bytes into a number.
-	static long int addBytesToInt(int x1, int x2, int x3, int x4);
+	static uint_least32_t addBytesToInt(uint_least32_t x1, 
+		uint_least32_t x2, uint_least32_t x3, uint_least32_t x4);
 
 	// Combines two bytes into a number using Big-Endian approach.
 	static int  addBytesToIntBE(int x1, int x2);
 
 	// Combines three bytes into a number using Big-Endian approach.
-	static long addBytesToIntBE(int x1, int x2, int x3);
+	static uint_least32_t addBytesToIntBE(int x1, int x2, int x3);
 
 	// Combines four bytes into a number using Big-Endian approach.
-	static long addBytesToIntBE(int x1, int x2, int x3, int x4);
+	static uint_least32_t addBytesToIntBE(uint_least32_t x1, 
+		uint_least32_t x2, uint_least32_t x3, uint_least32_t x4);
 
 	// Combines four bytes into a number from a byte array.
-	static long addBytesToInt4(unsigned char* b);
+	static uint_least32_t addBytesToInt4(unsigned char* b);
 
 	// Combines four bytes into a number from a byte array starting from specified offset.
-	static long addBytesToInt4(unsigned char* b, int off);
+	static uint_least32_t addBytesToInt4(unsigned char* b, int off);
 
 	// Combines four bytes into a number from a byte array using an Big-Endian approach.
-	static long addBytesToInt4BE(unsigned char* b);
+	static uint_least32_t addBytesToInt4BE(unsigned char* b);
 
 	// Combines four bytes into a number from a byte array using an Big-Endian approach
 	// from specified offeset.
-	static long addBytesToInt4BE(unsigned char* b, int off);
+	static uint_least32_t addBytesToInt4BE(unsigned char* b, int off);
 
 	// Creates a string of specified amount of bits at the target offset.
 	static std::string createByteString(int bits, int offset);

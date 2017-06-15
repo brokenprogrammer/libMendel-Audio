@@ -3,6 +3,10 @@
 *.lo
 *.o
 *.obj
+*.class
+
+# Build files
+/build
 
 # Precompiled Headers
 *.gch
@@ -38,6 +42,9 @@
 *.exe
 *.out
 *.app
+
+# Gradle files
+.gradle
 
 # Testing
 /tests/includes
